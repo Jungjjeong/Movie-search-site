@@ -1,23 +1,5 @@
+import axios from "axios";
 import router from "~/routes";
-
-const API_KEY = process.env.VUE_APP_KEY;
-
-const _request = async (payload) => {
-  const { searchTitle, id, page, plot } = payload;
-  const PARAMS = id
-    ? `&i=${id}&plot=${plot}`
-    : `&s=${searchTitle}&page=${page}`;
-
-  try {
-    const response = await fetch(
-      `https://www.omdbapi.com?apikey=${API_KEY}${PARAMS}`
-    ).then((res) => res.json());
-
-    return response;
-  } catch (e) {
-    console.log(e.message);
-  }
-};
 
 export default {
   namespaced: true,
@@ -50,7 +32,8 @@ export default {
 
       const { searchTitle, page } = payload;
       const movies = await _request({
-        ...payload,
+        s: searchTitle,
+        page,
       });
 
       if (page > 1) {
@@ -79,8 +62,9 @@ export default {
     async getMovieDetail({ commit }, payload) {
       commit("updateLoading");
 
+      const { id } = payload;
       const movieDetail = await _request({
-        ...payload,
+        i: id,
         plot: "full",
       });
 
@@ -99,3 +83,12 @@ export default {
     },
   },
 };
+
+async function _request(params) {
+  const data = await axios.post(
+    "/.netlify/functions/movie",
+    JSON.stringify(params)
+  );
+
+  return data.data;
+}

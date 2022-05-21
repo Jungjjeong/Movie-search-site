@@ -55,16 +55,17 @@ module.exports = {
     ],
   },
   plugins: [
-    new Dotenv(),
     new VueLoaderPlugin(),
     new HtmlPlugin({
-      template: "./src/index.html",
+      template: "src/index.html",
     }),
     new CopyPlugin({
       patterns: [{ from: "static" }],
     }),
+    new Dotenv(),
   ],
   devServer: {
     historyApiFallback: true,
+    port: 8079,
   },
 };
