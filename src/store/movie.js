@@ -75,18 +75,15 @@ export default {
         },
       });
 
-      console.log(state);
       commit("updateLoading");
     },
     async getMovieDetail({ commit }, payload) {
       commit("updateLoading");
-      console.log(payload);
+
       const movieDetail = await _request({
         ...payload,
         plot: "full",
       });
-
-      console.log(movieDetail);
 
       commit("assignState", {
         currentMovie: movieDetail,
@@ -98,6 +95,7 @@ export default {
           id: movieDetail.imdbID,
         },
       });
+
       commit("updateLoading");
     },
   },
