@@ -6,8 +6,8 @@
   left: $l;
 }
 
-@mixin display-flex($d: rows) {
+@mixin display-flex($d: row, $align: stretch) {
   display: flex;
-  align-items: center;
+  align-items: $align;
   flex-direction: $d;
 }

@@ -2,7 +2,7 @@
   <header>
     <div class="header">
       <div class="header__title" @click="onMoveHome">
-        <div class="image"></div>
+        <div class="image" />
         <div class="title">지영화검색</div>
       </div>
       <div class="header__search">
@@ -59,12 +59,12 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  @include display-flex();
+  @include display-flex($align: center);
   height: 80px;
   margin: 5px 50px;
 
   &__title {
-    @include display-flex();
+    @include display-flex($align: center);
     margin: 0 50px;
     cursor: pointer;
 
@@ -86,7 +86,7 @@ export default {
     padding: 0 40px;
 
     &-container {
-      @include display-flex();
+      @include display-flex($align: center);
       width: 80%;
       height: 40px;
       padding: 0 20px;

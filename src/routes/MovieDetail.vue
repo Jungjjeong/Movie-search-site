@@ -113,8 +113,7 @@ export default {
         font-size: 70px;
       }
       .description {
-        display: flex;
-        flex-direction: column;
+        @include display-flex($d: column);
         flex-grow: 1;
         overflow-y: auto;
 
@@ -134,7 +133,7 @@ export default {
           padding: 15px 0;
 
           .rating {
-            display: flex;
+            @include display-flex($align: center);
             width: 50%;
             margin: 2px 0;
             border: 1px solid;
@@ -143,6 +142,7 @@ export default {
               width: 70%;
               padding: 0 8px;
             }
+
             &-value {
               width: 30%;
               color: $color-background;

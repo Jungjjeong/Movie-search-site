@@ -31,7 +31,6 @@ export default {
       isLoading: false,
     };
   },
-  getters: {},
   mutations: {
     updateMovies(state, newMovies) {
       state.movies = [...state.movies, ...newMovies];
@@ -46,7 +45,7 @@ export default {
     },
   },
   actions: {
-    async getMovies({ state, commit }, payload) {
+    async getMovies({ commit }, payload) {
       commit("updateLoading");
 
       const { searchTitle, page } = payload;

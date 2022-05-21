@@ -63,7 +63,7 @@ export default {
       if (this.movies.length < this.totalResults) {
         this.$store.dispatch("movie/getMovies", {
           searchTitle: this.$store.state.movie.currentSearchTitle,
-          page: (this.$store.state.movie.currentPage += 1),
+          page: this.$store.state.movie.currentPage + 1,
         });
         return;
       }
@@ -111,7 +111,7 @@ export default {
   }
 
   .movie-none {
-    @include display-flex(column);
+    @include display-flex(column, center);
     gap: 30px;
 
     .image {

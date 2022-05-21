@@ -34,7 +34,7 @@ export default {
 <style lang="scss" scoped>
 .movie {
   position: relative;
-  @include display-flex(column);
+  @include display-flex(column, center);
   width: 100%;
   height: 100%;
   margin-top: 5%;

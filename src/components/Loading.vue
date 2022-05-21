@@ -1,7 +1,7 @@
 <template>
   <section class="loading">
-    <div class="loading__overlay"></div>
-    <div class="loading__image"></div>
+    <div class="loading__overlay" />
+    <div class="loading__image" />
   </section>
 </template>
 
